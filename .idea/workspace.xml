@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/MatrixOperations/Notebook.java" line="180" />
+    <bookmark url="file://$PROJECT_DIR$/src/MatrixOperations/Notebook.java" line="179" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67970722-2d5b-46fd-832a-ef1efd363509" name="Default" comment="" />
+    <list default="true" id="67970722-2d5b-46fd-832a-ef1efd363509" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MarixProject/MatrixOperations/MatrixEquationConvertor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MarixProject/MatrixOperations/MatrixEquationConvertor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MarixProject/MatrixOperations/Notebook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MarixProject/MatrixOperations/Notebook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MatrixOperations/Notebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatrixOperations/Notebook.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,26 +22,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MatrixOperations/Notebook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1936">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="330">
+              <caret line="162" column="72" selection-start-line="162" selection-start-column="72" selection-end-line="162" selection-end-column="72" />
               <folding>
                 <element signature="method#equationsPreparer#0;class#Notebook#0" />
+                <element signature="e#6393#6394#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MatrixOperations/Matrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="method#carmersRule#0;class#Matrix#0" />
+                <element signature="method#determinant#0;class#Matrix#0" />
+                <element signature="method#reducedRowEchelonForm#0;class#Matrix#0" />
+                <element signature="method#reducedRowEchelonFormSteps#0;class#Matrix#0" />
+                <element signature="method#multiply#0;class#Matrix#0" />
+                <element signature="method#booleanMultiply#0;class#Matrix#0" />
+                <element signature="method#add#0;class#Matrix#0" />
+                <element signature="method#transpose#0;class#Matrix#0" />
+                <element signature="method#trace#0;class#Matrix#0" />
+                <element signature="method#matrixPrinter#0;class#Matrix#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="816">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
-                <element signature="method#numbersToMatrix#0;class#MatrixEquationConvertor#0" />
-                <element signature="method#signAssigner#0;class#MatrixEquationConvertor#0" />
                 <element signature="method#equAdder#0;class#MatrixEquationConvertor#0" />
                 <element signature="method#opsAdder#0;class#MatrixEquationConvertor#0" />
                 <element signature="method#numberExtractor#0;class#MatrixEquationConvertor#0" />
@@ -53,6 +81,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pre</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -62,16 +98,19 @@
         <option value="$PROJECT_DIR$/src/MatrixOperations/UnequalColumnRow.java" />
         <option value="$PROJECT_DIR$/src/MatrixOperations/MatrixUI.java" />
         <option value="$PROJECT_DIR$/src/MatrixOperations/Matrix.java" />
-        <option value="$PROJECT_DIR$/src/MatrixOperations/Notebook.java" />
+        <option value="$PROJECT_DIR$/src/MatrixOperations/EquationReader.java" />
         <option value="$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java" />
+        <option value="$PROJECT_DIR$/src/MatrixOperations/Notebook.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="508" />
-    <option name="y" value="357" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="950" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -79,7 +118,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -102,18 +140,20 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Owner/Desktop/Projects/MatrixProject/src/MatrixOperations/Notebook.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546184290083" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/BasicIO.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547302775314" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -213,39 +253,42 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527535882280</updated>
-      <workItem from="1546183986732" duration="544000" />
+      <workItem from="1546183986732" duration="1182000" />
+      <workItem from="1546192527360" duration="597000" />
+      <workItem from="1547241647754" duration="44000" />
+      <workItem from="1547241737290" duration="1869000" />
+      <workItem from="1547265133133" duration="3406000" />
+      <workItem from="1547334402683" duration="1862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544000" />
+    <option name="totallyTimeSpent" value="8960000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="761" y="0" width="782" height="831" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.30235782" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32968536" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3385269" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5028653" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39586207" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32968536" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.30152145" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -254,7 +297,41 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26768377" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32968536" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.504298" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39586207" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32968536" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.30152145" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -299,10 +376,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MatrixOperations/EquationReader.java" />
+    <entry file="file://$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="method#equAdder#0;class#MatrixEquationConvertor#0" />
+            <element signature="method#opsAdder#0;class#MatrixEquationConvertor#0" />
+            <element signature="method#numberExtractor#0;class#MatrixEquationConvertor#0" />
+            <element signature="method#equSetter#0;class#MatrixEquationConvertor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MatrixOperations/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="161" column="68" selection-start-line="161" selection-start-column="68" selection-end-line="161" selection-end-column="68" />
+        <state relative-caret-position="64">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="method#carmersRule#0;class#Matrix#0" />
             <element signature="method#determinant#0;class#Matrix#0" />
@@ -320,25 +411,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatrixOperations/Notebook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="330">
+          <caret line="162" column="72" selection-start-line="162" selection-start-column="72" selection-end-line="162" selection-end-column="72" />
           <folding>
             <element signature="method#equationsPreparer#0;class#Notebook#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatrixOperations/MatrixEquationConvertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="method#numbersToMatrix#0;class#MatrixEquationConvertor#0" />
-            <element signature="method#signAssigner#0;class#MatrixEquationConvertor#0" />
-            <element signature="method#equAdder#0;class#MatrixEquationConvertor#0" />
-            <element signature="method#opsAdder#0;class#MatrixEquationConvertor#0" />
-            <element signature="method#numberExtractor#0;class#MatrixEquationConvertor#0" />
-            <element signature="method#equSetter#0;class#MatrixEquationConvertor#0" />
+            <element signature="e#6393#6394#0" expanded="true" />
           </folding>
         </state>
       </provider>

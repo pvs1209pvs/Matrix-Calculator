@@ -9,7 +9,7 @@ public class MatrixEquationConvertor {
     private double[][] matrix;
     private ArrayList<Character> equ;
     private ArrayList<Character> ops;
-   
+
 
     private ArrayList<Double> equDigit;
 
@@ -35,6 +35,7 @@ public class MatrixEquationConvertor {
         numbersToMatrix();
     }
 
+
     /* lets user input the equations of their choice in the form af a String */
     void userInputAdder(int index, String equation) {
         userInput[index] = equation;
@@ -57,7 +58,8 @@ public class MatrixEquationConvertor {
         for (int i = 0; i < ops.size(); i++) {
             if (ops.get(i) == '-') {
                 equDigit.set(i, -1 * equDigit.get(i));
-            } else if (ops.get(i) == '-') {
+            }
+            else if (ops.get(i) == '-') {
                 equDigit.set(i, 1 * equDigit.get(i));
             }
         }
@@ -100,7 +102,8 @@ public class MatrixEquationConvertor {
                     equDigit.add(Double.parseDouble(digit));
                 }
                 digit = "";
-            } else {
+            }
+            else {
                 digit += x;
             }
         }

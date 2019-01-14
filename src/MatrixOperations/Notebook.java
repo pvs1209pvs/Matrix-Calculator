@@ -1,5 +1,6 @@
 package MatrixOperations;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 
 public class Notebook {
@@ -13,16 +14,19 @@ public class Notebook {
     private double[][] matrixO;
     private double[][] matrixT;
 
-    public Notebook () {
+    private Notebook() {
+
 
         Matrix ops = new Matrix();
 
+        // ops.sout
+        System.out.println("ops = " + ops);
 
         equsOne = new ArrayList<String>();
         equsTwo = new ArrayList<String>();
 
-        double[][] matrixOne=null;
-        double[][] matrixTwo=null;
+        double[][] matrixOne = null;
+        double[][] matrixTwo = null;
 
         MatrixUI matrixUI;
         Matrix matOps;
@@ -33,7 +37,7 @@ public class Notebook {
         matrixUI = new MatrixUI();
         matrixUI.setUpMainUI();
 
-        if (matrixUI.mainUI.accept()==9) {
+        if (matrixUI.mainUI.accept() == 9) {
 
             matrixUI.equationReader("equOne", equsOne);
             mecOne = new MatrixEquationConvertor(equsOne.size());
@@ -47,13 +51,12 @@ public class Notebook {
             mecTwo = new MatrixEquationConvertor(equsTwo.size());
             for (int i = 0; i < equsTwo.size(); i++) {
                 mecTwo.userInputAdder(i, equsTwo.get(i));
-
             }
             mecTwo.matrixMaker();
             matrixTwo = mecTwo.getMatrix();
         }
 
-        for ( ; ; ) {
+        for (; ; ) {
 
             int button = matrixUI.mainUI.accept();
 
@@ -117,10 +120,10 @@ public class Notebook {
                     matrixUI = new MatrixUI();
                     matrixUI.setUpMainUI();
 
-                    matrixOne=null;
-                    matrixTwo=null;
+                    matrixOne = null;
+                    matrixTwo = null;
 
-                    if (matrixUI.mainUI.accept()==9) {
+                    if (matrixUI.mainUI.accept() == 9) {
                         matrixUI.equationReader("equOne", equsOne);
                         mecOne = new MatrixEquationConvertor(equsOne.size());
                         for (int i = 0; i < equsOne.size(); i++) {
@@ -138,7 +141,7 @@ public class Notebook {
                         matrixTwo = mecTwo.getMatrix();
                     }
 
-                   // equationsPreparer(matrixUI, mecOne, mecTwo, matrixOne, matrixTwo);
+                    // equationsPreparer(matrixUI, mecOne, mecTwo, matrixOne, matrixTwo);
                     break;
                 case 11:
                     matrixUI.mainUI.close();
@@ -157,28 +160,28 @@ public class Notebook {
      * @param matrixO
      * @param matrixT
      */
-    private void equationsPreparer (MatrixUI UI, MatrixEquationConvertor mecO, MatrixEquationConvertor mecT, double[][] matrixO, double[][] matrixT) {
+    private void equationsPreparer(MatrixUI UI, MatrixEquationConvertor mecO, MatrixEquationConvertor mecT, double[][] matrixO, double[][] matrixT) {
 
         UI.mainUI.accept();
         UI.equationReader("equOne", equsOne);
-        mecO= new MatrixEquationConvertor(equsOne.size());
-        for (int i=0; i<equsOne.size(); i++) {
+        mecO = new MatrixEquationConvertor(equsOne.size());
+        for (int i = 0; i < equsOne.size(); i++) {
             mecO.userInputAdder(i, equsOne.get(i));
         }
         mecO.matrixMaker();
-        matrixO= mecO.getMatrix();
+        matrixO = mecO.getMatrix();
 
         UI.mainUI.accept();
         UI.equationReader("equTwo", equsTwo);
-        mecT= new MatrixEquationConvertor(equsTwo.size());
-        for (int i=0; i<equsTwo.size(); i++) {
+        mecT = new MatrixEquationConvertor(equsTwo.size());
+        for (int i = 0; i < equsTwo.size(); i++) {
             mecT.userInputAdder(i, equsTwo.get(i));
         }
         mecT.matrixMaker();
-        matrixT= mecT.getMatrix();
+        matrixT = mecT.getMatrix();
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new Notebook();
     } // main
 }
