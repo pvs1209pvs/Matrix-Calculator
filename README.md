@@ -1,5 +1,4 @@
 # Matrix
-Simple matrix operations.
 
 Includes simple matrix operations
 - Addition
@@ -9,3 +8,6 @@ Includes simple matrix operations
 - Transpose
 - Inverse
 - Trace
+
+# Author(s)
+Paramvir Singh
