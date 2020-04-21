@@ -2,17 +2,21 @@ package MatrixOperations;
 
 import java.util.List;
 
-public class Matrix {
+
+class Matrix {
 
     private double[][] matrix;
     private int rows;
     private int cols;
 
-    public Matrix(int rows, int cols) {
+
+    Matrix(int rows, int cols) {
+
         matrix = new double[rows][cols];
         this.rows = rows;
         this.cols = cols;
     }
+
 
     public void fillRow(int i, List<Double> numbers) {
         for (int j = 0; j < cols; j++) {
@@ -32,6 +36,7 @@ public class Matrix {
         return matrix[i][j];
     }
 
+
     public int getRows() {
         return rows;
     }
@@ -48,7 +53,9 @@ public class Matrix {
         this.matrix = matrix;
     }
 
-    void deepCopy(Matrix from) {
+
+     void deepCopy(Matrix from) {
+
         for (int i = 0; i < from.getRows(); i++) {
             for (int j = 0; j < from.getCols(); j++) {
                 setAt(i, j, from.getFrom(i, j));

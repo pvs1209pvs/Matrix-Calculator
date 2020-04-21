@@ -1,11 +1,13 @@
 package MatrixOperations;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquationConverter {
+class EquationConverter {
 
-    static public List<Double> convert(String equation) {
+    static List<Double> convert(String equation) {
 
         StringBuilder eqtn = new StringBuilder();
         eqtn.append(equation);

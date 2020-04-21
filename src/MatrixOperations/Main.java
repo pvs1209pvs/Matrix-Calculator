@@ -18,12 +18,14 @@ public class Main {
         System.out.println(a);
         System.out.println(b);
 
+
 //        System.out.println(MatrixOperations.trace(a));
 //        System.out.println(MatrixOperations.determinant(a));
 //        System.out.println(MatrixOperations.adjoint(a));
 //        System.out.println(MatrixOperations.inverse(a));
 //        System.out.println(MatrixOperations.reducedRowEchelonForm(a));
 //        System.out.println(MatrixOperations.multiply(a, b));
+
 
     }
 
