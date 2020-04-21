@@ -22,8 +22,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        TextArea matrixEquationOne = new TextArea("Enter equations here");
-        TextArea matrixEquationTwo = new TextArea("Enter equations here");
+        primaryStage.setHeight(200);
+        primaryStage.setWidth(800);
+
+        TextArea matrixEquationOne = new TextArea("2x+3y=4\n" +
+                "5x+4y=7\n" +
+                "9x+4y=8");
+        TextArea matrixEquationTwo = new TextArea("2x+6y=4\n" +
+                "9x+3y=2\n" +
+                "8x+7y=1");
         TextArea matrixSolution = new TextArea("Solution appears here");
 
         HBox matrixArea = new HBox(matrixEquationOne, matrixEquationTwo, matrixSolution);
@@ -36,24 +43,8 @@ public class Main extends Application {
         Button multiplication = new Button("Multiplication");
         Button determinant = new Button("Determinant");
         Button read = new Button("Read Equation(s)");
-        read.setId("readEq");
-
 
         read.setOnAction(actionEvent -> {
-
-//            List<String> equationsOne = new ArrayList<>(Arrays.asList(matrixEquationOne.getText().split("\n")));
-//
-//            List<List<Double>> numbers = new ArrayList<>();
-//
-//            for (String e : equationsOne) {
-//                numbers.add((EquationConverter.convert(e)));
-//            }
-//
-//            Matrix matrix = new Matrix(numbers.size(), numbers.get(0).size());
-//
-//            for (int i = 0; i < numbers.size(); i++) {
-//                matrix.fillRow(i, numbers.get(i));
-//            }
 
             Matrix matrixOne = buildMatrix(matrixEquationOne);
             Matrix matrixTwo = buildMatrix(matrixEquationTwo);
