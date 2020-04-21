@@ -1,4 +1,4 @@
-package MatrixOperations;
+package matrixoperations;
 
 import java.util.List;
 

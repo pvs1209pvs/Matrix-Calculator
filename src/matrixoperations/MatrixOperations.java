@@ -1,4 +1,4 @@
-package MatrixOperations;
+package matrixoperations;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -126,7 +126,7 @@ public class MatrixOperations {
     }
 
 
-    static double determinant(Matrix mat) {
+    static public double determinant(Matrix mat) {
         double answer = 0;
         return determinant(mat, 0, answer);
 
@@ -215,10 +215,6 @@ public class MatrixOperations {
     converts element above and below it to zero. */
     private static void reducedRowEchelonFormSteps(int a, int b, Matrix mat) {
 
-        if (mat.getRows() != mat.getCols()) {
-            throw new NotASquareMatrixException();
-        }
-
         // STEP 1: convert the element at pivot equal to 1
         double coef = mat.getFrom(a, b);
 
@@ -300,7 +296,7 @@ public class MatrixOperations {
     }
 
     /* Adds two given matrix. */
-    static Matrix add(Matrix matOne, Matrix matTwo) {
+    public static Matrix add(Matrix matOne, Matrix matTwo) {
 
         if (!(matOne.getRows() == matTwo.getRows() && matOne.getCols() == matTwo.getCols())) {
             throw new UnequalColumnRow();
@@ -351,4 +347,4 @@ public class MatrixOperations {
     }
 
 
-} // MatrixOperations
+} // matrixoperations

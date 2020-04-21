@@ -1,4 +1,4 @@
-package MatrixOperations;
+package matrixoperations;
 
 public class NotASquareMatrixException extends RuntimeException {
 }

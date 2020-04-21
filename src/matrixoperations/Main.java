@@ -1,4 +1,4 @@
-package MatrixOperations;
+package matrixoperations;
 
 public class Main {
 
@@ -19,12 +19,12 @@ public class Main {
         System.out.println(b);
 
 
-//        System.out.println(MatrixOperations.trace(a));
-//        System.out.println(MatrixOperations.determinant(a));
-//        System.out.println(MatrixOperations.adjoint(a));
-//        System.out.println(MatrixOperations.inverse(a));
-//        System.out.println(MatrixOperations.reducedRowEchelonForm(a));
-//        System.out.println(MatrixOperations.multiply(a, b));
+//        System.out.println(matrixoperations.trace(a));
+//        System.out.println(matrixoperations.determinant(a));
+//        System.out.println(matrixoperations.adjoint(a));
+//        System.out.println(matrixoperations.inverse(a));
+//        System.out.println(matrixoperations.reducedRowEchelonForm(a));
+//        System.out.println(matrixoperations.multiply(a, b));
 
 
     }
