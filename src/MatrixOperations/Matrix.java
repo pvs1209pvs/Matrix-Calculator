@@ -3,14 +3,14 @@ package MatrixOperations;
 import java.util.List;
 
 
-class Matrix {
+public class Matrix {
 
     private double[][] matrix;
     private int rows;
     private int cols;
 
 
-    Matrix(int rows, int cols) {
+    public Matrix(int rows, int cols) {
 
         matrix = new double[rows][cols];
         this.rows = rows;
