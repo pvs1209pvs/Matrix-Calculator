@@ -5,9 +5,9 @@ package MatrixOperations;
 import java.util.ArrayList;
 import java.util.List;
 
-class EquationConverter {
+public class EquationConverter {
 
-    static List<Double> convert(String equation) {
+    static public List<Double> convert(String equation) {
 
         StringBuilder eqtn = new StringBuilder();
         eqtn.append(equation);
