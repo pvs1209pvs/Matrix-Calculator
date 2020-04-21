@@ -1,13 +1,13 @@
 # Matrix
 
 Includes simple matrix operations
-- Addition
-- Multiplication
+- Determinant
+- Trace
 - Reduced Row Rchelon Form 
-- Cramer's Rule
 - Transpose
 - Inverse
-- Trace
+- Addition
+- Multiplication
 
 # Author(s)
 Paramvir Singh
