@@ -9,5 +9,5 @@ Includes simple matrix operations
 - Addition
 - Multiplication
 
-# Author(s)
+## Author
 Paramvir Singh
