@@ -8,6 +8,3 @@ Includes simple matrix operations
 - Inverse
 - Addition
 - Multiplication
-
-## Author
-Paramvir Singh
