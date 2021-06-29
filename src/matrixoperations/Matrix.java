@@ -5,21 +5,18 @@ import java.util.List;
 
 public class Matrix {
 
-    private double[][] matrix;
-    private int rows;
-    private int cols;
-
+    private final double[][] matrix;
+    final int ROW_LEN;
+    final int COL_LEN;
 
     public Matrix(int rows, int cols) {
-
+        this.ROW_LEN = rows;
+        this.COL_LEN = cols;
         matrix = new double[rows][cols];
-        this.rows = rows;
-        this.cols = cols;
     }
 
-
     public void fillRow(int i, List<Double> numbers) {
-        for (int j = 0; j < cols; j++) {
+        for (int j = 0; j < COL_LEN; j++) {
             matrix[i][j] = numbers.get(j);
         }
     }
@@ -28,37 +25,19 @@ public class Matrix {
         return matrix[i];
     }
 
-    void setAt(int i, int j, double v) {
+    void set(int i, int j, double v) {
         matrix[i][j] = v;
     }
 
-    double getFrom(int i, int j) {
+    double get(int i, int j) {
         return matrix[i][j];
     }
 
+    void deepCopy(Matrix from) {
 
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
-    }
-
-    public double[][] getMatrix() {
-        return matrix;
-    }
-
-    void setMatrix(double[][] matrix) {
-        this.matrix = matrix;
-    }
-
-
-     void deepCopy(Matrix from) {
-
-        for (int i = 0; i < from.getRows(); i++) {
-            for (int j = 0; j < from.getCols(); j++) {
-                setAt(i, j, from.getFrom(i, j));
+        for (int i = 0; i < from.ROW_LEN; i++) {
+            for (int j = 0; j < from.COL_LEN; j++) {
+                set(i, j, from.get(i, j));
             }
         }
     }

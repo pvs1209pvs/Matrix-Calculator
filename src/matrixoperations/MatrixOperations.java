@@ -1,68 +1,30 @@
 package matrixoperations;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.DecimalFormat;
-import java.util.Arrays;
 
 public class MatrixOperations {
 
-    private static DecimalFormat df = new DecimalFormat(".##");
+    private static final DecimalFormat twoDecimalPlacesFormat = new DecimalFormat(".##");
 
-    /* Finds all the unknown of a matrix by using Carmers's Rule. */
-    public static void carmersRule(Matrix mat) {
+    /**
+     * Calculates the inverse of the matrix.
+     *
+     * @param mat Matrix to calculate inverse of.
+     * @return Inverse value of matrix.
+     */
+    public static Matrix inverse(@NotNull Matrix mat) {
 
-        if (mat.getRows() == mat.getCols()) {
-            throw new UnequalNumberOfRowsAndUnknowns();
-        }
-
-        double[] answers = new double[mat.getRows()];
-
-        Matrix unknowns = new Matrix(mat.getRows(), mat.getCols());
-        Matrix result = new Matrix(mat.getRows(), mat.getCols());
-
-        for (int i = 0; i < mat.getRows(); i++) {
-            for (int j = 0; j < mat.getCols() - 1; j++) {
-                unknowns.setAt(i, j, mat.getFrom(i, j));
-            }
-        }
-
-        for (int n = 0; n < mat.getRows(); n++) {
-            for (int i = 0; i < mat.getRows(); i++) {
-                for (int j = 0; j < mat.getRows(); j++) {
-                    if (j == n) {
-                        result.setAt(i, n, mat.getFrom(i, mat.getRows()));
-                    }
-                    else {
-                        result.setAt(i, j, unknowns.getFrom(i, j));
-                    }
-                }
-            }
-
-            answers[n] = Double.parseDouble(df.format(determinant(result) / determinant(unknowns)));
-            for (int i = 0; i < mat.getRows(); i++) {
-                Arrays.fill(result.getRow(i), 0);
-            }
-
-        }
-
-    }
-
-    /* Computes the inverse of the matrix by dividing every
-    single element of it's adjoint by it's determinant. */
-    public static Matrix inverse(Matrix mat) {
-
-        if (mat.getRows() != mat.getCols()) {
+        if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
         }
 
-        Matrix result = new Matrix(mat.getRows(), mat.getCols());
-        result.deepCopy(mat);
+        Matrix result = adjoint(mat);
 
-        result = adjoint(result);
-
-
-        for (int i = 0; i < result.getRows(); i++) {
-            for (int j = 0; j < result.getCols(); j++) {
-                result.setAt(i, j, result.getFrom(i, j) / determinant(mat));
+        for (int i = 0; i < result.ROW_LEN; i++) {
+            for (int j = 0; j < result.COL_LEN; j++) {
+                result.set(i, j, Double.parseDouble(twoDecimalPlacesFormat.format(result.get(i, j) / determinant(mat))));
             }
         }
 
@@ -70,42 +32,47 @@ public class MatrixOperations {
 
     }
 
-    /* Returns the adjoint of the matrix in the form of 2D array. transpose method is also used in this method. */
-    public static Matrix adjoint(Matrix mat) {
+    /**
+     * Calculates the adjoint of the matrix.
+     *
+     * @param mat Matrix to calculate adjoint of.
+     * @return Adjoint value of matrix.
+     */
+    public static Matrix adjoint(@NotNull Matrix mat) {
 
-        if (mat.getRows() != mat.getCols()) {
+        if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
         }
 
-        double[] minor = new double[(int) Math.pow(mat.getRows() - 1, 2)];
-        double[] values = new double[(int) Math.pow(mat.getRows(), 2)];
-        Matrix dummy = new Matrix(mat.getRows() - 1, mat.getCols() - 1);
-        Matrix result = new Matrix(mat.getRows(), mat.getRows());
+        double[] minor = new double[(int) Math.pow(mat.ROW_LEN - 1, 2)];
+        double[] values = new double[(int) Math.pow(mat.ROW_LEN, 2)];
+        Matrix temp = new Matrix(mat.ROW_LEN - 1, mat.COL_LEN - 1);
+        Matrix result = new Matrix(mat.ROW_LEN, mat.ROW_LEN);
 
         int index = 0;
         int pos = 0;
 
-        for (int a = 0; a < mat.getRows(); a++) {
-            for (int b = 0; b < mat.getRows(); b++) {
+        for (int a = 0; a < mat.ROW_LEN; a++) {
+            for (int b = 0; b < mat.ROW_LEN; b++) {
 
-                for (int i = 0; i < mat.getRows(); i++) {
-                    for (int j = 0; j < mat.getRows(); j++) {
+                for (int i = 0; i < mat.ROW_LEN; i++) {
+                    for (int j = 0; j < mat.ROW_LEN; j++) {
                         if (!(j == b | i == a)) {
-                            minor[index] = mat.getFrom(i, j);
+                            minor[index] = mat.get(i, j);
                             index++;
                         }
                     }
                 }
 
                 index = 0;
-                for (int i = 0; i < dummy.getRows(); i++) {
-                    for (int j = 0; j < dummy.getCols(); j++) {
-                        dummy.setAt(i, j, minor[index]);
+                for (int i = 0; i < temp.ROW_LEN; i++) {
+                    for (int j = 0; j < temp.COL_LEN; j++) {
+                        temp.set(i, j, minor[index]);
                         index++;
                     }
                 }
 
-                values[pos] = determinant(dummy);
+                values[pos] = determinant(temp);
 
                 index = 0;
                 pos++;
@@ -114,77 +81,86 @@ public class MatrixOperations {
 
         pos = 0;
 
-        for (int i = 0; i < mat.getRows(); i++) {
-            for (int j = 0; j < mat.getRows(); j++) {
-                result.setAt(i, j, Math.pow(-1, i + j) * values[pos]);
+        for (int i = 0; i < mat.ROW_LEN; i++) {
+            for (int j = 0; j < mat.ROW_LEN; j++) {
+                result.set(j, i, Math.pow(-1, i + j) * values[pos]);
                 pos++;
             }
         }
 
-        return mat;
+        return result;
 
     }
 
+    /**
+     * Calculates the determinant of the matrix.
+     *
+     * @param mat Matrix whose determinant needs to calculated.
+     * @return Determinant value of the matrix.
+     */
+    static public double determinant(@NotNull Matrix mat) {
 
-    static public double determinant(Matrix mat) {
-        double answer = 0;
-        return determinant(mat, 0, answer);
-
-    }
-
-    /* Returns the determinant of the given matrix as a single double value also switches
-    rows to get the correct determinant. */
-    static double determinant(Matrix mat, int swaps, double answer) {
-
-        if (mat.getRows() != mat.getCols()) {
+        if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
         }
 
+        return determinant(mat, 0, 0);
+    }
+
+    /**
+     * Calculates valid determinant of the matrix for each row swap.
+     *
+     * @param mat    Matrix whose determinant needs to calculated.
+     * @param swaps  Number of swaps to perform.
+     * @param answer Valid determinant so far.
+     * @return Valid determinant.
+     */
+    static double determinant(@NotNull Matrix mat, int swaps, double answer) {
+
         double coef = 0;
-        Matrix result = new Matrix(mat.getRows(), mat.getCols());
-        Matrix extra = new Matrix(mat.getRows(), mat.getCols());
+        Matrix result = new Matrix(mat.ROW_LEN, mat.COL_LEN);
+        Matrix extra = new Matrix(mat.ROW_LEN, mat.COL_LEN);
 
         extra.deepCopy(mat);
         result.deepCopy(mat);
 
-        for (int a = 0; a < result.getRows(); a++) {
-            for (int i = 0; i < result.getRows(); i++) {
-                coef = -(result.getFrom(i, a) / result.getFrom(a, a));
-                for (int j = 0; j < result.getCols(); j++) {
+        for (int a = 0; a < result.ROW_LEN; a++) {
+            for (int i = 0; i < result.ROW_LEN; i++) {
+                coef = -(result.get(i, a) / result.get(a, a));
+                for (int j = 0; j < result.COL_LEN; j++) {
                     if (i != a & !(i < a)) {
-                        result.setAt(i, j, result.getFrom(i, j) + (result.getFrom(a, j) * coef));
+                        result.set(i, j, result.get(i, j) + (result.get(a, j) * coef));
                     }
                 }
             }
         }
 
         double number = 1;
-        for (int i = 0; i < result.getRows(); i++) {
-            for (int j = 0; j < result.getCols(); j++) {
+        for (int i = 0; i < result.ROW_LEN; i++) {
+            for (int j = 0; j < result.COL_LEN; j++) {
                 if (i == j) {
-                    number *= result.getFrom(i, j);
+                    number *= result.get(i, j);
                 }
             }
         }
 
         if (!Double.isNaN(number)) {
-            answer = Double.parseDouble(df.format(number));
-        }
-        else {
-            double[] swapper = new double[result.getRows()];
+            answer = Double.parseDouble(twoDecimalPlacesFormat.format(number));
+        } else {
+            double[] swapper = new double[result.ROW_LEN];
             for (int i = swaps; i <= swaps; i++) {
-                for (int j = 0; j < result.getCols(); j++) {
-                    swapper[j] = extra.getFrom(i, j);
+                for (int j = 0; j < result.COL_LEN; j++) {
+                    swapper[j] = extra.get(i, j);
                 }
             }
             for (int i = swaps; i <= swaps; i++) {
-                for (int j = 0; j < result.getCols(); j++) {
-                    extra.setAt(i, j, extra.getFrom(i + 1, j));
+                for (int j = 0; j < result.COL_LEN; j++) {
+                    extra.set(i, j, extra.get(i + 1, j));
                 }
             }
             for (int i = swaps + 1; i <= swaps + 1; i++) {
-                for (int j = 0; j < result.getCols(); j++) {
-                    extra.setAt(i, j, swapper[j]);
+                for (int j = 0; j < result.COL_LEN; j++) {
+                    extra.set(i, j, swapper[j]);
                 }
             }
             swaps++;
@@ -196,69 +172,74 @@ public class MatrixOperations {
         return answer;
     }
 
-    /* Uses reducedRowEchelonFormSteps to convert the given matrix to Reduced Row Echelon Form
-    by calling the reducedRowEchelonFormSteps method equal to number of rows in the given matrix. */
-    public static Matrix reducedRowEchelonForm(Matrix mat) {
+    /**
+     * Calculates the Reduced Row Echelon form of the matrix.
+     *
+     * @param mat Matrix whose RREF needs to be calculated.
+     * @return RREF value of matrix.
+     */
+    public static Matrix reducedRowEchelonForm(@NotNull Matrix mat) {
 
-        Matrix result = new Matrix(mat.getRows(), mat.getCols());
+        if (mat.ROW_LEN == mat.COL_LEN) {
+            throw new SquareMatrixException();
+        }
+
+        Matrix result = new Matrix(mat.ROW_LEN, mat.COL_LEN);
         result.deepCopy(mat);
 
-        for (int i = 0; i < result.getRows(); i++) {
-            reducedRowEchelonFormSteps(i, i, result);
+        for (int i = 0; i < result.ROW_LEN; i++) {
+            reducedRowEchelonForm(result, i);
+        }
+
+        for (int i = 0; i < mat.ROW_LEN; i++) {
+            result.set(i, mat.COL_LEN - 1, Double.parseDouble(twoDecimalPlacesFormat.format(result.get(i, result.COL_LEN - 1))));
         }
 
         return result;
 
     }
 
-    /* Converts the pivot element of one single column of the given matrix to one and
-    converts element above and below it to zero. */
-    private static void reducedRowEchelonFormSteps(int a, int b, Matrix mat) {
+    /**
+     * Calculates the Reduced Row Echelon form for a single row of the matrix.
+     *
+     * @param mat          Matrix whose RREF needs to be calculated.
+     * @param diagonalTrav Diagonal traversal number.
+     */
+    private static void reducedRowEchelonForm(@NotNull Matrix mat, int diagonalTrav) {
 
         // STEP 1: convert the element at pivot equal to 1
-        double coef = mat.getFrom(a, b);
+        double coef = mat.get(diagonalTrav, diagonalTrav);
 
-        for (int i = 0; i < mat.getRow(a).length; i++) {
-            mat.setAt(a, i, mat.getFrom(a, i) / coef);
+        for (int i = 0; i < mat.getRow(diagonalTrav).length; i++) {
+            mat.set(diagonalTrav, i, mat.get(diagonalTrav, i) / coef);
         }
 
         // STEP 2: convert the number above and below the pivot equal to 0
-        for (int i = 0; i < mat.getRows(); i++) {
-            if (i != a) {
-                if (mat.getFrom(i, b) > 0) {
-                    coef = -1 * (mat.getFrom(a, b) * mat.getFrom(i, b));
-                }
-                else {
-                    coef = -1 * (mat.getFrom(a, b) * mat.getFrom(i, b));
-                }
-
-                for (int j = 0; j < mat.getCols(); j++) {
-                    mat.setAt(i, j, mat.getFrom(i, j) + (mat.getFrom(a, j) * coef));
+        for (int i = 0; i < mat.ROW_LEN; i++) {
+            if (i != diagonalTrav) {
+                coef = -1 * (mat.get(diagonalTrav, diagonalTrav) * mat.get(i, diagonalTrav));
+                for (int j = 0; j < mat.COL_LEN; j++) {
+                    mat.set(i, j, mat.get(i, j) + (mat.get(diagonalTrav, j) * coef));
                 }
             }
         }
 
     }
 
-    /* Adds two given matrix. If column length of the first matrix is not equal to the
-    row length of second matrix then UnequalColumnRow() is thrown */
-    // add another array for the 2nd Linear System to properly throw the exception.
-    public static Matrix multiply(Matrix a, Matrix b) {
 
-        if (a.getCols() != b.getRows()) {
-            throw new UnequalColumnRow();
-        }
+    /**
+     * Calculates the transpose of the matrix.
+     *
+     * @param mat Matrix whose transpose needs to be calculated.
+     * @return Transpose value of the matrix.
+     */
+    public static Matrix transpose(@NotNull Matrix mat) {
 
-        Matrix result = new Matrix(a.getRows(), b.getCols());
+        Matrix result = new Matrix(mat.COL_LEN, mat.ROW_LEN);
 
-        double number = 0;
-        for (int i = 0; i < result.getRows(); i++) {
-            for (int j = 0; j < b.getCols(); j++) {
-                for (int k = 0; k < result.getRows(); k++) {
-                    number += a.getFrom(i, k) * b.getFrom(k, j);
-                }
-                result.setAt(i, j, number);
-                number = 0;
+        for (int i = 0; i < mat.ROW_LEN; i++) {
+            for (int j = 0; j < mat.COL_LEN; j++) {
+                result.set(j, i, mat.get(i, j));
             }
         }
 
@@ -266,78 +247,24 @@ public class MatrixOperations {
 
     }
 
-    public static void booleanMultiply(boolean[][] a, boolean[][] b) {
+    /**
+     * Calculates the trace of the matrix.
+     *
+     * @param mat Matrix whose trace needs to be calculated.
+     * @return
+     */
+    public static double trace(@NotNull Matrix mat) {
 
-        boolean[][] result = new boolean[a.length][b[0].length];
-        boolean[] numbers = new boolean[result.length];
-        boolean computedValue = false;
-
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < b[0].length; j++) {
-                for (int k = 0; k < result.length; k++) {
-                    numbers[k] = a[i][k] & b[k][j];
-                }
-                for (boolean x : numbers) {
-                    if (x == true) {
-                        computedValue = true;
-                    }
-                }
-                result[i][j] = computedValue;
-                computedValue = false;
-            }
+        if (mat.ROW_LEN != mat.COL_LEN) {
+            throw new NotASquareMatrixException();
         }
-
-        for (boolean[] x : result) {
-            for (boolean y : x) {
-                System.out.print(y);
-            }
-            System.out.println();
-        }
-    }
-
-    /* Adds two given matrix. */
-    public static Matrix add(Matrix matOne, Matrix matTwo) {
-
-        if (!(matOne.getRows() == matTwo.getRows() && matOne.getCols() == matTwo.getCols())) {
-            throw new UnequalColumnRow();
-        }
-
-        Matrix result = new Matrix(matOne.getRows(), matOne.getCols());
-
-        for (int i = 0; i < matOne.getRows(); i++) {
-            for (int j = 0; j < matTwo.getCols(); j++) {
-                result.setAt(i, j, matOne.getFrom(i, j) + matTwo.getFrom(i, j));
-            }
-        }
-
-        return result;
-
-    }
-
-    /* Finds the transpose of the give matrix*/
-    public static Matrix transpose(Matrix mat) {
-
-        Matrix result = new Matrix(mat.getCols(), mat.getRows());
-
-        for (int i = 0; i < mat.getRows(); i++) {
-            for (int j = 0; j < mat.getCols(); j++) {
-                result.setAt(j, i, mat.getFrom(i, j));
-            }
-        }
-
-        return result;
-
-    }
-
-    /* Outputs sum of the diagonal of the given matrix. */
-    public static double trace(Matrix mat) {
 
         double number = 0;
 
-        for (int i = 0; i < mat.getRows(); i++) {
-            for (int j = 0; j < mat.getCols(); j++) {
+        for (int i = 0; i < mat.ROW_LEN; i++) {
+            for (int j = 0; j < mat.COL_LEN; j++) {
                 if (i == j) {
-                    number += mat.getFrom(i, j);
+                    number += mat.get(i, j);
                 }
             }
         }
@@ -346,5 +273,60 @@ public class MatrixOperations {
 
     }
 
+    /**
+     * Calculates the multiplication of the two matrices.
+     *
+     * @param matOne First matrix.
+     * @param matTwo Second matrix.
+     * @return Multiplication of the two matrices.
+     */
+    public static Matrix multiply(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
 
-} // matrixoperations
+        if (matOne.COL_LEN != matTwo.ROW_LEN) {
+            throw new UnequalColumnRow();
+        }
+
+        Matrix result = new Matrix(matOne.ROW_LEN, matTwo.COL_LEN);
+
+        double number = 0;
+        for (int i = 0; i < result.ROW_LEN; i++) {
+            for (int j = 0; j < matTwo.COL_LEN; j++) {
+                for (int k = 0; k < result.ROW_LEN; k++) {
+                    number += matOne.get(i, k) * matTwo.get(k, j);
+                }
+                result.set(i, j, number);
+                number = 0;
+            }
+        }
+
+        return result;
+
+    }
+
+
+    /**
+     * Calculates the addition of the two matrices.
+     *
+     * @param matOne First matrix.
+     * @param matTwo Second matrix.
+     * @return Addition of the two matrices.
+     */
+    public static Matrix add(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
+
+        if (!(matOne.ROW_LEN == matTwo.ROW_LEN && matOne.COL_LEN == matTwo.COL_LEN)) {
+            throw new UnequalColumnRow();
+        }
+
+        Matrix result = new Matrix(matOne.ROW_LEN, matOne.COL_LEN);
+
+        for (int i = 0; i < matOne.ROW_LEN; i++) {
+            for (int j = 0; j < matTwo.COL_LEN; j++) {
+                result.set(i, j, matOne.get(i, j) + matTwo.get(i, j));
+            }
+        }
+
+        return result;
+
+    }
+
+}
