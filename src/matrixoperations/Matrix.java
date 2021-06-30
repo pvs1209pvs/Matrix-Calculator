@@ -1,6 +1,8 @@
 package matrixoperations;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Matrix {
@@ -23,6 +25,18 @@ public class Matrix {
 
     double[] getRow(int i) {
         return matrix[i];
+    }
+
+    double[] getCol(int j){
+
+        double[] col = new double[ROW_LEN];
+
+        for (int i = 0; i < ROW_LEN; i++) {
+            col[i] = matrix[i][j];
+        }
+
+        return col;
+
     }
 
     void set(int i, int j, double v) {
@@ -55,6 +69,23 @@ public class Matrix {
         }
 
         return stringBuilder.toString();
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        for (int i = 0; i < ROW_LEN; i++) {
+            if (!Arrays.equals(getRow(i), ((Matrix) o).getRow(i))) {
+                return false;
+            }
+        }
+
+        return true;
 
     }
 

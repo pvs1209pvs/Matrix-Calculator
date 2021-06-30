@@ -1,8 +1,12 @@
 package matrixoperations;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MatrixOperations {
 
@@ -14,7 +18,7 @@ public class MatrixOperations {
      * @param mat Matrix to calculate inverse of.
      * @return Inverse value of matrix.
      */
-    public static Matrix inverse(@NotNull Matrix mat) {
+    public static @NotNull Matrix inverse(@NotNull Matrix mat) {
 
         if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
@@ -38,7 +42,7 @@ public class MatrixOperations {
      * @param mat Matrix to calculate adjoint of.
      * @return Adjoint value of matrix.
      */
-    public static Matrix adjoint(@NotNull Matrix mat) {
+    public static @NotNull Matrix adjoint(@NotNull Matrix mat) {
 
         if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
@@ -178,7 +182,7 @@ public class MatrixOperations {
      * @param mat Matrix whose RREF needs to be calculated.
      * @return RREF value of matrix.
      */
-    public static Matrix reducedRowEchelonForm(@NotNull Matrix mat) {
+    public static @NotNull Matrix reducedRowEchelonForm(@NotNull Matrix mat) {
 
         if (mat.ROW_LEN == mat.COL_LEN) {
             throw new SquareMatrixException();
@@ -233,7 +237,7 @@ public class MatrixOperations {
      * @param mat Matrix whose transpose needs to be calculated.
      * @return Transpose value of the matrix.
      */
-    public static Matrix transpose(@NotNull Matrix mat) {
+    public static @NotNull Matrix transpose(@NotNull Matrix mat) {
 
         Matrix result = new Matrix(mat.COL_LEN, mat.ROW_LEN);
 
@@ -280,7 +284,7 @@ public class MatrixOperations {
      * @param matTwo Second matrix.
      * @return Multiplication of the two matrices.
      */
-    public static Matrix multiply(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
+    public static @NotNull Matrix multiply(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
 
         if (matOne.COL_LEN != matTwo.ROW_LEN) {
             throw new UnequalColumnRow();
@@ -326,6 +330,29 @@ public class MatrixOperations {
         }
 
         return result;
+
+    }
+
+    public static Matrix readEquations(String equations) {
+
+        if (equations.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
+        List<String> equationsOne = new ArrayList<>(Arrays.asList(equations.split("\n")));
+
+        List<List<Double>> numbers = new ArrayList<>();
+
+
+        equationsOne.forEach(s -> numbers.add(EquationConverter.convert(s)));
+
+        Matrix matrix = new Matrix(numbers.size(), numbers.get(0).size());
+
+        for (int i = 0; i < numbers.size(); i++) {
+            matrix.fillRow(i, numbers.get(i));
+        }
+
+        return matrix;
 
     }
 
