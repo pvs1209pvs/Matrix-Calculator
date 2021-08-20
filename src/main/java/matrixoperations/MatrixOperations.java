@@ -344,7 +344,7 @@ public class MatrixOperations {
         List<List<Double>> numbers = new ArrayList<>();
 
 
-        equationsOne.forEach(s -> numbers.add(EquationConverter.convert(s)));
+        equationsOne.forEach(s -> numbers.add(EquationParser.convert(s)));
 
         Matrix matrix = new Matrix(numbers.size(), numbers.get(0).size());
 

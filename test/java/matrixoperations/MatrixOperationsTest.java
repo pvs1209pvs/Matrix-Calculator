@@ -2,8 +2,7 @@ package matrixoperations;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MatrixOperationsTest {
 
@@ -31,7 +30,12 @@ class MatrixOperationsTest {
 
     @org.junit.jupiter.api.Test
     void adjoint() {
+        Matrix result = new Matrix(3, 3);
+        result.fillRow(0, Arrays.asList(4.0, -8.0, 5.0));
+        result.fillRow(1, Arrays.asList(23.0, -20.0, 6.0));
+        result.fillRow(2, Arrays.asList(-16.0, 19.0, -7.0));
 
+        assertEquals(result, MatrixOperations.adjoint(squareMatOne));
     }
 
     @org.junit.jupiter.api.Test
@@ -88,5 +92,4 @@ class MatrixOperationsTest {
         assertEquals(result, MatrixOperations.add(squareMatOne, squareMatTwo));
 
     }
-
 }

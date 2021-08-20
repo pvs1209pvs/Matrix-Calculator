@@ -5,7 +5,7 @@ package matrixoperations;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquationConverter {
+public class EquationParser {
 
     static public List<Double> convert(String equation) {
 
