@@ -1,4 +1,4 @@
-package matrixoperations;
+package com.company;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -317,9 +317,11 @@ public class MatrixOperations {
      */
     public static Matrix add(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
 
-        if (!(matOne.ROW_LEN == matTwo.ROW_LEN && matOne.COL_LEN == matTwo.COL_LEN)) {
+
+        if(matOne.ROW_LEN != matTwo.ROW_LEN || matOne.COL_LEN != matTwo.COL_LEN){
             throw new UnequalColumnRow();
         }
+
 
         Matrix result = new Matrix(matOne.ROW_LEN, matOne.COL_LEN);
 
@@ -342,7 +344,6 @@ public class MatrixOperations {
         List<String> equationsOne = new ArrayList<>(Arrays.asList(equations.split("\n")));
 
         List<List<Double>> numbers = new ArrayList<>();
-
 
         equationsOne.forEach(s -> numbers.add(EquationParser.convert(s)));
 

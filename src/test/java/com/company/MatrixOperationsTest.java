@@ -1,4 +1,7 @@
-package matrixoperations;
+package com.company;
+
+import com.company.Matrix;
+import com.company.MatrixOperations;
 
 import java.util.Arrays;
 

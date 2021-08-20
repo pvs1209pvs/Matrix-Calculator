@@ -1,4 +1,4 @@
-package matrixoperations;
+package com.company;
 
 public class SquareMatrixException extends RuntimeException{
 }
