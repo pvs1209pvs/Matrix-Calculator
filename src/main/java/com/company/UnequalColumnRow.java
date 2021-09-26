@@ -1,4 +1,4 @@
 package com.company;
 
-public class UnequalColumnRow extends RuntimeException {
+ class UnequalColumnRow extends RuntimeException {
 }

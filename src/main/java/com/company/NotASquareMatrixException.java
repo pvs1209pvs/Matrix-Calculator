@@ -1,4 +1,4 @@
 package com.company;
 
-public class NotASquareMatrixException extends RuntimeException {
+ class NotASquareMatrixException extends RuntimeException {
 }

@@ -5,7 +5,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquationParser {
+ class EquationParser {
 
     static public List<Double> convert(String equation) {
 

@@ -1,10 +1,5 @@
 # Matrix
 
-Includes simple matrix operations
-- Determinant
-- Trace
-- Reduced Row Rchelon Form 
-- Transpose
-- Inverse
-- Addition
-- Multiplication
+![main screen](main.png)
+![screen with solution](solution.png)
+![screen with error](error.png)

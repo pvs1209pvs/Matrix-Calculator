@@ -1,8 +1,5 @@
 package com.company;
 
-import com.company.Matrix;
-import com.company.MatrixOperations;
-
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;

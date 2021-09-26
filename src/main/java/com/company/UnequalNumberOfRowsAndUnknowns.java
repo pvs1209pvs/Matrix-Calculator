@@ -1,4 +1,4 @@
 package com.company;
 
-public class UnequalNumberOfRowsAndUnknowns extends RuntimeException {
+class UnequalNumberOfRowsAndUnknowns extends RuntimeException {
 }

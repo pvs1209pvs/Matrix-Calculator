@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MatrixOperations {
+ class MatrixOperations {
 
     private static final DecimalFormat twoDecimalPlacesFormat = new DecimalFormat(".##");
 
@@ -18,7 +18,7 @@ public class MatrixOperations {
      * @param mat Matrix to calculate inverse of.
      * @return Inverse value of matrix.
      */
-    public static @NotNull Matrix inverse(@NotNull Matrix mat) {
+    public static Matrix inverse( Matrix mat) {
 
         if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
@@ -42,7 +42,7 @@ public class MatrixOperations {
      * @param mat Matrix to calculate adjoint of.
      * @return Adjoint value of matrix.
      */
-    public static @NotNull Matrix adjoint(@NotNull Matrix mat) {
+    public static  Matrix adjoint(Matrix mat) {
 
         if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
@@ -102,7 +102,7 @@ public class MatrixOperations {
      * @param mat Matrix whose determinant needs to calculated.
      * @return Determinant value of the matrix.
      */
-    static public double determinant(@NotNull Matrix mat) {
+    static public double determinant( Matrix mat) {
 
         if (mat.ROW_LEN != mat.COL_LEN) {
             throw new NotASquareMatrixException();
@@ -119,7 +119,7 @@ public class MatrixOperations {
      * @param answer Valid determinant so far.
      * @return Valid determinant.
      */
-    static double determinant(@NotNull Matrix mat, int swaps, double answer) {
+    static double determinant( Matrix mat, int swaps, double answer) {
 
         double coef = 0;
         Matrix result = new Matrix(mat.ROW_LEN, mat.COL_LEN);

@@ -3,8 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class Matrix {
+ class Matrix {
 
     private final double[][] matrix;
     final int ROW_LEN;
@@ -46,7 +45,7 @@ public class Matrix {
         return matrix[i][j];
     }
 
-    void deepCopy(Matrix from) {
+    public void deepCopy(Matrix from) {
 
         for (int i = 0; i < from.ROW_LEN; i++) {
             for (int j = 0; j < from.COL_LEN; j++) {
