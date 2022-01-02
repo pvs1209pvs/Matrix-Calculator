@@ -1,11 +1,11 @@
-package com.company;
+package com.company.parse;
 
 
 
 import java.util.ArrayList;
 import java.util.List;
 
- class EquationParser {
+ public class EquationParser {
 
     static public List<Double> convert(String equation) {
 

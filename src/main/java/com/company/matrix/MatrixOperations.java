@@ -1,6 +1,10 @@
-package com.company;
+package com.company.matrix;
 
 
+import com.company.matrixexceptions.NotASquareMatrixException;
+import com.company.matrixexceptions.SquareMatrixException;
+import com.company.matrixexceptions.UnequalColumnRowException;
+import com.company.parse.EquationParser;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
@@ -8,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
- class MatrixOperations {
+ public class MatrixOperations {
 
     private static final DecimalFormat twoDecimalPlacesFormat = new DecimalFormat(".##");
 
@@ -287,7 +291,7 @@ import java.util.List;
     public static @NotNull Matrix multiply(@NotNull Matrix matOne, @NotNull Matrix matTwo) {
 
         if (matOne.COL_LEN != matTwo.ROW_LEN) {
-            throw new UnequalColumnRow();
+            throw new UnequalColumnRowException();
         }
 
         Matrix result = new Matrix(matOne.ROW_LEN, matTwo.COL_LEN);
@@ -319,7 +323,7 @@ import java.util.List;
 
 
         if(matOne.ROW_LEN != matTwo.ROW_LEN || matOne.COL_LEN != matTwo.COL_LEN){
-            throw new UnequalColumnRow();
+            throw new UnequalColumnRowException();
         }
 
 

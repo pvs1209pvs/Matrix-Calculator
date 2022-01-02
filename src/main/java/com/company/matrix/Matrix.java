@@ -1,13 +1,13 @@
-package com.company;
+package com.company.matrix;
 
 import java.util.Arrays;
 import java.util.List;
 
- class Matrix {
+public class Matrix {
 
     private final double[][] matrix;
     final int ROW_LEN;
-    final int COL_LEN;
+    public final int COL_LEN;
 
     public Matrix(int rows, int cols) {
         this.ROW_LEN = rows;
@@ -25,7 +25,7 @@ import java.util.List;
         return matrix[i];
     }
 
-    double[] getCol(int j){
+    public double[] getCol(int j) {
 
         double[] col = new double[ROW_LEN];
 
